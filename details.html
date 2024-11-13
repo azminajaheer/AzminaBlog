@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Add click event to images for enlarging them to 350px
+        const cafeImages = document.querySelectorAll('.cafe-image-row img');
+        const travelImages = document.querySelectorAll('.travel-image-row img');
+
+        cafeImages.forEach(image => {
+            image.addEventListener('click', () => {
+                // Toggle the 'clicked' class on the image
+                image.classList.toggle('clicked');
+            });
+        });
+
+        travelImages.forEach(image => {
+            image.addEventListener('click', () => {
+                // Toggle the 'clicked' class on the image
+                image.classList.toggle('clicked');
+            });
+        });
+
+        // Slider functionality to slide images left and right for travel and café sections
+        function slideLeft(section) {
+            if (section === 'travel') {
+                document.querySelector('.travel-image-row').scrollBy({ left: -200, behavior: 'smooth' });
+            } else {
+                document.querySelector('.cafe-image-row').scrollBy({ left: -200, behavior: 'smooth' });
+            }
+        }
+
+        function slideRight(section) {
+            if (section === 'travel') {
+                document.querySelector('.travel-image-row').scrollBy({ left: 200, behavior: 'smooth' });
+            } else {
+                document.querySelector('.cafe-image-row').scrollBy({ left: 200, behavior: 'smooth' });
+            }
+        }
+    </script>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <a class="nav-link" href="#">
+                        <img src="https://see.fontimg.com/api/rf5/7BWnK/OWIxZDJiOTU1MThlNDNiMGFkZWQ3ZGUwMjU4MTllMWYub3Rm/QXptaW5hIEphaGVlcg/brother-signature.png?r=fs&h=130&w=2000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="Azmina Jaheer Signature" style="height: 50px;">
+                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="details.html">Interesting Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="text-center mt-5">A Peek Into My World of Adventures!</h1>
+
+        <!-- Switched "Love to Travel" section -->
+        <div class="details-section mt-4 text-center">
+            <h2>Wanderlust in My Soul</h2>
+            <p>I thrive on new experiences, whether it’s getting lost in bustling cities, exploring untouched landscapes, or soaking in vibrant cultures. Every destination is a new adventure waiting to happen, and I'm always ready to pack my bags and go wherever the road (or sky) takes me!</p>
+
+            <!-- Slider Container with Left and Right Arrows for "Love to Travel" -->
+            <div class="slider-container" style="position:relative;">
+                <button class="slider-btn slider-btn-left" onclick="slideLeft('travel')">&#10094;</button>
+
+                <div class="image-row travel-image-row">
+                    <img src="images/e87db2aa-865e-4c1c-8458-cf1c26286ea6.JPG" alt="Travel Image 1">
+                    <img src="images/03b0b0ee-17af-4eb4-8077-53c26fa378a6 3.JPG" alt="Travel Image 2">
+                    <img src="images/6A1807B0-A8EE-4339-8327-10524475B198.JPG" alt="Travel Image 3">
+                    <img src="images/94d1c58f-2bb8-4416-9c24-73ce1dee09fe.JPG" alt="Travel Image 4">
+                    <img src="images/c402bcd4-ad7c-426e-9856-49a4476be0ac 3.JPG" alt="Travel Image 5">
+                    <img src="images/IMG_1892.jpeg" alt="Travel Image 6">
+                    <img src="images/IMG_7137.jpeg" alt="Travel Image 7">
+                </div>
+
+                <button class="slider-btn slider-btn-right" onclick="slideRight('travel')">&#10095;</button>
+            </div>
+        </div>
+
+        <!-- Café Hopper Extraordinaire section moved below -->
+        <div class="details-section mt-4 text-center">
+            <h2>Café Hopper Extraordinaire</h2>
+            <p>When I'm not coding, you'll find me café hopping! I love discovering cozy spots that serve amazing coffee and have the right vibe for brainstorming or reading.</p>
+
+            <!-- Slider Container with Left and Right Arrows for Café Hopping -->
+            <div class="slider-container" style="position:relative;">
+                <button class="slider-btn slider-btn-left" onclick="slideLeft('cafe')">&#10094;</button>
+
+                <div class="image-row cafe-image-row">
+                    <img src="images/52d7b60c-7119-450f-8105-c049d7146fca.jpg" alt="Cafe Image 1">
+                    <img src="images/a548a188-0161-4dd2-b204-c47ad6e0af78.jpg" alt="Cafe Image 2">
+                    <img src="images/ADADFD37-4DC6-44E7-A060-CF9DB3D51B00.JPG" alt="Cafe Image 3">
+                    <img src="images/IMG_6126.jpeg" alt="Cafe Image 4">
+                    <img src="images/IMG_7048.jpeg" alt="Cafe Image 5">
+                    <img src="images/IMG_7065.jpeg" alt="Cafe Image 6">
+                    <img src="images/IMG_8793.jpeg" alt="Cafe Image 7">
+                    <img src="images/IMG_9775.jpg" alt="Cafe Image 8">
+                </div>
+
+                <button class="slider-btn slider-btn-right" onclick="slideRight('cafe')">&#10095;</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Azmina. All rights reserved.</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
